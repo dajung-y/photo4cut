@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>네컷사진</title>
+    <style>
+        @font-face {
+        font-family: "LeeSeoyun";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff")
+          format("woff");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+    body {
+        font-family: "LeeSeoyun";
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        background-image: url("./background.jpg");
+    }
+
+    .container{
+        width: 390px;
+        background-color: #134f2c;
+        height: 100%;
+    }
+
+    .photos{
+        margin-top: 30px;
+    }
+
+    .photo-frame{
+        background-color: white;
+        margin: 15px 20px;
+        height: 200px;
+        background-size: cover;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .footer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .f-title{
+        color: white;
+        font-size: 25px;
+        font-weight: 900;
+    }
+
+    .f-date{
+        color: white;
+        font-size: 15px;
+        font-weight: 500s;
+    }
+
+    #image1{
+        background-image: url('./apple.jpg');
+    }
+    #image2{
+        background-image: url('./rightside.jpg');
+    }
+    #image3{
+        background-image: url('./bear.jpg');
+    }
+    #image4{
+        background-image: url('./together.jpg');
+    }
+
+    .photo-description{
+        color: white;
+        background-color: #134f2c;
+
+        width: fit-content;
+        padding: 0 10px;
+        margin-bottom: 10px;
+
+        border-radius: 10px;
+        position: absolute;
+        bottom: 0;
+
+        transform: translate(-50%);
+        left: 50%;
+
+        opacity: 0;
+
+    }
+
+    .showText{
+        opacity: 0;
+    }
+
+    .hideText{
+        opacity: 1;
+        transition: opacity 0.5s linear;
+    }
+
+
+    </style>
+
+    <script>
+        function showText(number) {
+            if (number === 1) {
+                document.querySelector("#desc1").classList.remove("hideText");
+                document.querySelector("#desc1").classList.add("showText");
+            } else if (number === 2) {
+                document.querySelector("#desc2").classList.remove("hideText");
+                document.querySelector("#desc2").classList.add("showText");
+            }else if (number === 3) {
+                document.querySelector("#desc3").classList.remove("hideText");
+                document.querySelector("#desc3").classList.add("showText");
+            }
+             else {
+                document.querySelector("#desc4").classList.remove("hideText");
+                document.querySelector("#desc4").classList.add("showText");
+            }
+            }
+
+            function hideText(number) {
+            if (number === 1) {
+                document.querySelector("#desc1").classList.remove("showText");
+                document.querySelector("#desc1").classList.add("hideText");
+            } else if (number === 2) {
+                document.querySelector("#desc2").classList.remove("showText");
+                document.querySelector("#desc2").classList.add("hideText");
+            }else if (number === 3) {
+                document.querySelector("#desc3").classList.remove("showText");
+                document.querySelector("#desc3").classList.add("hideText");
+            }
+             else {
+                document.querySelector("#desc4").classList.remove("showText");
+                document.querySelector("#desc4").classList.add("hideText");
+            }
+}
+
+        function alertText(number) {
+            alert(`${number}번째 사진!!`);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="photos">
+            <div id="image1" class="photo-frame"
+                onmouseover="showText(1)"
+                onmouseout="hideText(1)"
+                onclick="alertText(1)">
+                <span id="desc1" class="photo-description">
+                    사과가 짤려버렸어..
+                </span>
+            </div>
+            <div id="image2" class="photo-frame"
+                onmouseover="showText(2)"
+                onmouseout="hideText(2)"
+                onclick="alertText(2)">
+                <span id="desc2" class="photo-description">
+                    안냥
+                </span>
+            </div>
+            <div id="image3" class="photo-frame"
+                onmouseover="showText(3)"
+                onmouseout="hideText(3)"
+                onclick="alertText(3)">>
+                <span id="desc3" class="photo-description">
+                    옹~
+                </span>
+            </div>
+            <div id="image4" class="photo-frame"
+                onmouseover="showText(4)"
+                onmouseout="hideText(4)"
+                onclick="alertText(4)">>>
+                <span id="desc4" class="photo-description">
+                    눈 온당
+                </span>
+            </div>
+        </div>
+        <div class="footer">
+            <p class="f-title">미리 메리 크리스마스</p>
+            <p class="f-date" style="text-align: center;">
+                잠실 크리스마스 마켓 & 강남 사이다 팝업 <br>2023.12.19</p>
+        </div>
+    </div>
+</body>
+</html>
